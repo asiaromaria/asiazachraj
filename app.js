@@ -15,7 +15,21 @@ function app(people){
       searchResults = searchByName(people);
       break;
     case 'no':
-      // TODO: search by traits
+
+
+    //TODO: Search by traits
+ 
+    let searchingByTraits = prompt("Would you like to search by traits? Enter 'yes' or 'no'");
+   
+    switch(searchingByTraits){
+      case 'yes':
+        searchResults = searchByTraits(people);
+        break;
+      case 'no':
+        alert("We can not proceed")
+    }
+    
+    
       break;
       default:
     app(people); // restart app
@@ -23,7 +37,7 @@ function app(people){
   }
   
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
-  mainMenu(searchResults, people);
+  mainMenu(searchResults[0], people);
 }
 
 // Menu function to call once you find who you are looking for
@@ -106,4 +120,25 @@ function yesNo(input){
 // helper function to pass in as default promptFor validation
 function chars(input){
   return true; // default validation only
+}
+
+// function searchByTraits(traits){
+// }
+
+// let traits =["height"];
+
+function searchByTraits(people){
+  let height = prompt("What is the persons height?");
+  let weight = prompt("What is the persons weight?");
+
+  let foundTraits = people.filter(function(person){
+    if(person.height == height && person.weight == weight){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  // TODO: find the person using the traits they entered
+  return foundTraits;
 }
