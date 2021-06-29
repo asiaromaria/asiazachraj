@@ -60,6 +60,9 @@ function mainMenu(person, people){
     // TODO: get person's family
     break;
     case "descendants":
+    let foundDescendants = findDescendants(people, person);
+          console.log(foundDescendants);
+    
     // TODO: get person's descendants
     break;
     case "restart":
@@ -141,4 +144,23 @@ function searchByTraits(people){
   })
   // TODO: find the person using the traits they entered
   return foundTraits;
+}
+
+
+function findDescendants(people, person){
+    let listOfDescendants = [];
+
+    for (let i=0; i<people.length; i++) {
+         if(people[i].parents.includes(person.id)){
+           listOfDescendants.push(people[i])  
+         }
+    }
+    for (let i=0; i<listOfDescendants.length; i++){
+        listOfDescendants = listOfDescendants.concat(findDescendants(people,listOfDescendants[i])) 
+ 
+      
+    }
+    
+    return listOfDescendants;
+    
 }
