@@ -55,6 +55,10 @@ function mainMenu(person, people){
   switch(displayOption){
     case "info":
     // TODO: get person's info
+    let foundInfo = displayPerson(person);
+    console.log(foundInfo); 
+
+    
     break;
     case "family":
     // TODO: get person's family
@@ -101,10 +105,22 @@ function displayPeople(people){
 function displayPerson(person){
   // print all of the information about a person:
   // height, weight, age, name, occupation, eye color.
-  let personInfo = "First Name: " + person.firstName + "\n";
-  personInfo += "Last Name: " + person.lastName + "\n";
-  // TODO: finish getting the rest of the information to display
-  alert(personInfo);
+ 
+//>>Code from zack...06.29.2021
+
+let personInfo = "First Name: " + person.firstName + "\n";
+personInfo += "Last Name: " + person.lastName + "\n";
+personInfo += "DoB: " + person.dob+ "\n";
+personInfo += "height: " + person.height + "\n";
+personInfo += "weight: " + person.weight + "\n";
+personInfo += "age: " + person.age + "\n";
+personInfo += "occupation: " + person.occupation + "\n";
+personInfo += "eye color: " + person.eyeColor + "\n";
+personInfo += "gender: " + person.gender + "\n";
+
+// TODO: finish getting the rest of the information to display
+alert(personInfo);
+return personInfo;
 }
 
 // function that prompts and validates user input
